@@ -2,6 +2,12 @@
     CONSOLE APPLICATION : winsock Project Overview
 ========================================================================
 
+Client attempts to connect to server on port 27015. Must set DEFAULT_IP to the local 
+machine's IP address. When a client connects and sends the string "file request" the 
+server sends a file to the client which is then written to "client_receive_file".
+
+========================================================================
+
 AppWizard has created this winsock application for you.
 
 This file contains a summary of what you will find in each of the files that

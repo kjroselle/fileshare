@@ -7,7 +7,7 @@
 
 #define DEFAULT_PORT "27015"
 #define DEFAULT_BUFLEN 512
-#define DEFAULT_IP "192.168.1.4"
+#define DEFAULT_IP "192.168.1.117"
 
 int main(int argc,char* argv[])
 {
@@ -83,7 +83,7 @@ int main(int argc,char* argv[])
   char *sendbuf = "file request";
   char recvbuf[DEFAULT_BUFLEN];
 
-  // Send an initial buffer
+  // Send an initial buffer to request a file
   iResult = send(ConnectSocket, sendbuf, (int) strlen(sendbuf) + 1, 0);
   if (iResult == SOCKET_ERROR) {
     printf("send failed: %d\n", WSAGetLastError());
@@ -103,6 +103,8 @@ int main(int argc,char* argv[])
     WSACleanup();
     return 1;
   }
+
+  // file to write to when receiving from server
   std::ofstream fd_receive;
   fd_receive.open("F:\\Users\\KJ\\Documents\\Visual Studio 2010\\Projects\\winsock\\client_receive_file",  std::ios::out|std::ios::binary);
 
@@ -110,6 +112,7 @@ int main(int argc,char* argv[])
     std::cout << "file open for writing" << std::endl;
   } else {
     std::cout << "file failed to open for writing" << std::endl;
+    return 1;
   }
 
   // Receive data until the server closes the connection

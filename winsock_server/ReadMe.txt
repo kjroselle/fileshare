@@ -2,6 +2,11 @@
     CONSOLE APPLICATION : winsock_server Project Overview
 ========================================================================
 
+Server listens for connections on port 27015. Must set DEFAULT_IP to the local machine's IP address.
+When a client connects and sends the string "file request" the server reads the file to be sent into
+"send_block" and sends the file to the client.
+
+========================================================================
 AppWizard has created this winsock_server application for you.
 
 This file contains a summary of what you will find in each of the files that
